@@ -6,10 +6,10 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { AlertContextProvider } from "@/context/AlertContext";
 import { InstallProvider } from "@/context/InstallationContext";
-
+import {CONFIG} from "../../config";
 export default function App({ Component, pageProps }: AppProps) {
-  const description = "Jump start your NextJS PWA project with Chakrastic PWA";
-  const title = "Chakrastic PWA";
+  const {siteDescription, siteTitle, authorSocial} = CONFIG
+
   return (
     <ChakraProvider theme={theme}>
       <InstallProvider>
@@ -17,8 +17,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <LoadingContextProvider>
     <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{siteTitle}</title>
+        <meta name="description" content={siteDescription} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="mask-icon" href="/icons/mask-icon.svg" color="#FFFFFF" />
         <meta name="theme-color" content="#ffffff" />
@@ -39,16 +39,16 @@ export default function App({ Component, pageProps }: AppProps) {
           href="/icons/touch-icon-ipad-retina.png"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content={siteDescription} />
         <meta name="twitter:url" content={process.env.NEXT_PUBLIC_BUILD_URL} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
+        <meta name="twitter:title" content={siteTitle} />
+        <meta name="twitter:description" content={siteDescription} />
         <meta name="twitter:image" content="/icons/twitter.png" />
-        <meta name="twitter:creator" content="" />
+        <meta name="twitter:creator" content={authorSocial.twitter} />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description}/>
-        <meta property="og:site_name" content={title} />
+        <meta property="og:title" content={siteTitle} />
+        <meta property="og:description" content={siteDescription}/>
+        <meta property="og:site_name" content={siteTitle} />
         <meta property="og:url" content={process.env.NEXT_PUBLIC_BUILD_URL} />
         <meta property="og:image" content="/icons/og.png" />
       </Head>

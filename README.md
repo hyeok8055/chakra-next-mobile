@@ -41,7 +41,22 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.  
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font. 
+
+## Customize your config file
+Customize the config file to your liking for your project in `config.ts` to quickly update your site title,  descriptions, OG images and more all accross your app.
+```typescript 
+//config.ts
+const CONFIG = {
+    siteDescription: "Jump start your NextJS PWA project with Chakrastic PWA",
+    siteTitle: "Chakrastic PWA",
+    siteUrl: process.env.NEXT_PUBLIC_BUILD_URL,
+    siteImage: '',
+    siteKeywords: '',
+    siteLanguage: 'EN',
+    siteLocale: 'EN-US',
+}
+```
 
 ## 🚀 Deploy on Vercel
 
