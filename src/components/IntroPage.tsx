@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { FaGoogle } from "react-icons/fa";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const features = [
   {
@@ -211,10 +212,11 @@ const IntroPage = () => {
                 rounded="md"
                 fontWeight="bold"
                 mb={{ base: 2, sm: 0 }}
-                display="flex" // 플렉스 박스로 설정
-                alignItems="center" // 세로 중앙 정렬
-                justifyContent="center" // 가로 중앙 정렬
-                gap={5} // 아이콘과 텍스트 사이 간격
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                gap={5}
+                onClick={() => signIn("google")} // Google OAuth 로그인 호출
               >
                 <Icon as={FaGoogle} h={5} w={5} />
                 <chakra.span>Continue with Google</chakra.span>
